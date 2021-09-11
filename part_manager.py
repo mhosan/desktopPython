@@ -67,4 +67,6 @@ clear_btn.grid(row=2, column=3)
 app.title('Esta es la aplicación principal')
 app.geometry('700x350')
 
+populate_list()
+
 app.mainloop()
