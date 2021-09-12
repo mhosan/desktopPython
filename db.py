@@ -13,7 +13,7 @@ class Database:
         return rows
     
     def insert(self, part, customer, retailer, price):
-        self.cur.execute("INSERT INTO parts VAUES (NULL, ?, ?, ?)", (part, customer, retailer, price))
+        self.cur.execute("INSERT INTO parts VALUES (NULL, ?, ?, ?)", (part, customer, retailer, price))
         self.conn.commit()
 
     def remove(self, id):
