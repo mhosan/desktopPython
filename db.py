@@ -12,4 +12,23 @@ class Database:
         rows = self.cur.fetchall()
         return rows
     
+    def insert(self, part, customer, retailer, price):
+        self.cur.execute("INSERT INTO parts VAUES (NULL, ?, ?, ?)", (part, customer, retailer, price))
+        self.conn.commit()
+
+    def remove(self, id):
+        self.cur.execute("DELETE FROM parts WHERE id=?", (id,))
+        self.conn.commit()
     
+    def update(self, id, part, customer, retailer, price):
+        self.cur.execute("UPDATE parts SET part=?, customer=?, retailer=?, price=? WHERE id =?", (part, customer, retailer, price, id))
+        self.conn.commit()
+    
+    def __del__(self):
+        self.conn.close()
+
+#db = Database('store.db')
+#db.insert("4GB DDR4 Ram", "Juan Pelotas", "Microcentro", "345")
+#db.insert("14GB DDR4 Ram", "Alberto Marota", "La compu loca", "567")
+#db.insert("2GB DDR4 Ram", "Carlos Rodriguez", "Intel", "1345")
+
