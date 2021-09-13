@@ -19,7 +19,10 @@ def add_item():
     populate_list()
 
 def select_item(event):
-    print('hubo selección...')
+    global selected_item
+    index = parts_list.curselection()[0]
+    selected_item = parts_list.get(index)
+    print(selected_item)
 
 def remove_item():
     print('Remove')
