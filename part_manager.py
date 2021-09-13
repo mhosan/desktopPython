@@ -18,6 +18,9 @@ def add_item():
     parts_list.insert(END, (part_text.get(), customer_text.get(), retailer_text.get(), price_text.get()))
     populate_list()
 
+def select_item(event):
+    print('hubo selección...')
+
 def remove_item():
     print('Remove')
 
@@ -62,6 +65,7 @@ scrollbar.grid(row=3, column=3)
 
 parts_list.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=parts_list.yview)
+parts_list.bind('<<ListboxSelect>>', select_item)
 
 add_btn=Button(app, text='Add Part', width=12, command=add_item)
 add_btn.grid(row=2, column=0, pady=20)
