@@ -53,54 +53,54 @@ def clear_text():
 app = Tk()
 
 apellido = StringVar()
-apellido_label = Label(app, text='Apellido', font=('bold',14), pady=20)
+apellido_label = Label(app, text='Apellido', font=('bold',12), pady=20, padx=20)
 apellido_label.grid(row=0, column=0, sticky=W)
 apellido_entry = Entry(app, textvariable=apellido)
 apellido_entry.grid(row=0, column=1)
 
 nombre = StringVar()
-nombre_label = Label(app, text='Nombre', font=('bold',14))
+nombre_label = Label(app, text='Nombre', font=('bold',12), padx=20)
 nombre_label.grid(row=0, column=2, sticky=W)
 nombre_entry = Entry(app, textvariable=nombre)
 nombre_entry.grid(row=0, column=3)
 
 email = StringVar()
-email_label = Label(app, text='email', font=('bold',14))
+email_label = Label(app, text='email', font=('bold',12), padx=20)
 email_label.grid(row=1, column=0, sticky=W)
 email_entry = Entry(app, textvariable=email)
 email_entry.grid(row=1, column=1)
 
 celular = StringVar()
-celular_label = Label(app, text='Celular', font=('bold',14))
+celular_label = Label(app, text='Celular', font=('bold',12), padx=20)
 celular_label.grid(row=1, column=2, sticky=W)
 celular_entry = Entry(app, textvariable=celular)
 celular_entry.grid(row=1, column=3)
 
-parts_list = Listbox(app, height=8, width=50, border=0)
-parts_list.grid(row=3, column=0, columnspan=3, rowspan=6, pady=20, padx=20)
+parts_list = Listbox(app, height=7, width=70, border=0)
+parts_list.grid(row=4, column=0, columnspan=5, rowspan=6, pady=20, padx=20)
 
 scrollbar=Scrollbar(app)
-scrollbar.grid(row=3, column=3)
+scrollbar.grid(row=4, column=3, sticky=E, ipady=37, pady=15)
 
 parts_list.configure(yscrollcommand=scrollbar.set)
 scrollbar.configure(command=parts_list.yview)
 parts_list.bind('<<ListboxSelect>>', select_item)
 
-add_btn=Button(app, text='Agregar contacto', width=12, command=add_item)
-add_btn.grid(row=2, column=0, pady=20)
+add_btn=Button(app, text='Agregar contacto', width=14, command=add_item)
+add_btn.grid(row=2, column=1, pady=20, sticky=W)
 
-remove_btn=Button(app, text='Borrar contacto', width=12, command=remove_item)
-remove_btn.grid(row=2, column=1)
+remove_btn=Button(app, text='Borrar contacto', width=14, command=remove_item)
+remove_btn.grid(row=3, column=1, sticky=W)
 
-update_btn=Button(app, text='Actualizar contacto', width=12, command=update_item)
-update_btn.grid(row=2, column=2)
+update_btn=Button(app, text='Actualizar contacto', width=14, command=update_item)
+update_btn.grid(row=2, column=3, sticky=W)
 
-clear_btn=Button(app, text='Limpiar datos', width=12, command=clear_text)
-clear_btn.grid(row=2, column=3)
+clear_btn=Button(app, text='Limpiar datos', width=14, command=clear_text)
+clear_btn.grid(row=3, column=3, sticky=W)
 
 
-app.title('Esta es la aplicación principal')
-app.geometry('700x350')
+app.title('Gestor de contactos (Agenda)')
+app.geometry('485x350')
 
 populate_list()
 
